@@ -1,0 +1,63 @@
+
+event WarpStars() : CONSTRUCTER {
+    if (SaveGame.CurrentMode == 0) {
+        BinIndex = LevelScene.LoadSpriteBin("GlobalS3K/StarPost.bin");
+    } else {
+	    BinIndex = LevelScene.LoadSpriteBin("Global/StarPost.bin");
+    }
+}
+
+event Create() {
+    Active = false;
+    Priority = true;
+    DoDeform = false;
+
+    W = 16;
+    H = 16;
+    Rotation = 0;
+
+    Frame = 0;
+	CurrentAnimation = Sprite.FindAnimation("Stars 1");
+    CleanupInactiveObject = false;
+}
+
+event Update() {
+
+}
+
+event Render(CamX:int, CamY:int) {
+		if (Active)
+		{
+			//Draw Star
+			G.DrawSprite(Sprite, CurrentAnimation, 0, this.X - CamX, (this.Y) - CamY, 0, IE_NOFLIP);
+	
+			if (App.viewObjectCollision) {
+				G.SetDrawAlpha(0x80);
+				G.DrawRectangle(X - (W / 2) - CamX, Y - (H / 2) - CamY, W, H, DrawCollisionsColor);
+				G.SetDrawAlpha(0xFF);
+			}
+		}
+}
+
+event OnCollisionWithPlayer(PlayerID:int, HitFrom:int, Data:int) : int {
+    if (PlayerID != 0) return 0;
+	if (!Active) return 0;
+
+    Scene.Player.ObjectControlled = 0xFF;
+    Scene.Player.Hidden = true;
+    Scene.StopTimer = true;
+    //GoTimer = 48;
+    //StoredX = Scene.Player.EZX;
+    //StoredY = Scene.Player.EZY;
+    App.Audio.FadeMusic(1.0);
+
+    Scene.SaveState();
+
+	Scene.NextBonusStage = Math.randRange(0,2);
+	Scene.FadeAction = 5;
+
+    Scene.FadeTimerMax = 48 + 48;
+    Scene.FadeMax = 0x200;
+
+    return 1;
+}

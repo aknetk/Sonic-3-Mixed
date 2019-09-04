@@ -1,0 +1,281 @@
+object 0x04;
+
+var f:int;
+var Allotted:int;
+var Separation:int;
+var Sections:int;
+var Vsect:int;
+var Outliner:Object;
+
+event CollapsingPlatform() : CONSTRUCTER {
+    if (LevelScene.IsZoneCurrently("AIZ")) {
+        Act1BinIndex = LevelScene.LoadSpriteBin("AIZ/Collapsing Platform.bin");
+        Act2BinIndex = LevelScene.LoadSpriteBin("AIZ/Collapsing Platform 2.bin");
+        BinIndex = Act1BinIndex;
+    } else if (LevelScene.IsZoneCurrently("ICZ")) {
+        BinIndex = LevelScene.LoadSpriteBin("ICZ/Collapsing Bridge 1.bin");
+    } else {
+        BinIndex = LevelScene.LoadSpriteBin("AIZ/Collapsing Platform.bin");
+        Act1BinIndex = BinIndex;
+        Act2BinIndex = BinIndex;
+    }
+}
+
+event Create() {
+    Active = true;
+    Priority = false;
+    DoDeform = true;
+
+    W = 48;
+    H = 32;
+
+    f = -1;
+    Allotted = 60 * 5;
+
+    Separation = 2;
+    Sections = 8;
+    Vsect = 2;
+
+    CurrentAnimation = -1;
+    
+    Outliner = Scene.AddNewObject(Obj_PlatformOutliner, 0, X, Y, false, false);
+    Outliner.Parent = this;
+
+    SolidTop = true;
+    SolidCustomized = true;
+    Scene.AddSelfToRegistry(this, "Solid");
+
+    switch (Scene.ZoneID) {
+        case 1: // AIZ
+            W = 0x30;
+            H = 0x20;
+            if (Scene.Act == 2) {
+                H = 0x18;
+            }
+
+            if (Scene.Act == 2) {
+                BinIndex = Act2BinIndex;
+                Sprite = LevelScene.GetSpriteFromBinIndex(BinIndex);
+                Sprite.LinkPalette(Scene.TileSprite);
+                CurrentAnimation = Sprite.FindAnimation("Collapsing Platform 2");
+            } else if (Scene.Act == 1) {
+                BinIndex = Act1BinIndex;
+                CurrentAnimation = Sprite.FindAnimation("Collapsing Platform");
+            } else {
+                CurrentAnimation = 0;
+            }
+
+            Frame = 0;
+            break;
+        case 2: // HCZ
+            break;
+        case 3: // MGZ
+            break;
+        case 4: // CNZ
+            break;
+        case 5: // ICZ
+            W = 0x30;
+            H = 0x2C;
+            CurrentAnimation = Sprite.FindAnimation("Collapsing Bridge 1");
+            Sprite.LinkPalette(Scene.TileSprite);
+            break;
+        case 6: // LBZ
+            break;
+        case 7: // MHZ
+            break;
+        case 8: // LBZ
+            break;
+        case 9: // SOZ
+            break;
+        case 10: // LRZ
+            break;
+        case 11: // HPZ
+            break;
+        case 12: // SSZ
+            break;
+        case 13: // DEZ
+            break;
+        case 14: // DDZ
+            break;
+    }
+
+    VisW = W;
+    VisH = H * 2 + 16;
+
+    W <<= 1;
+    H <<= 1;
+}
+
+event Update() {
+    if (!Scene.maxLayer && !isHeldDebugObject) {
+        Outliner.W = Sprite.Animations[CurrentAnimation].Frames[Frame].W;
+        Outliner.H = Sprite.Animations[CurrentAnimation].Frames[Frame].H;
+        Outliner.Visible = true;
+    } else {
+        Outliner.Visible = false;
+    }
+    
+    SolidTop = true;
+    if (f > -1 && f <= Allotted) {
+        SolidTop = false;
+        Solid = false;
+        if (f == Allotted) {
+            Break();
+        }
+    }
+    if (f > 0) {
+        f -= 1;
+    }
+}
+
+event Break() {
+    Sound.Play(Sound.SFX_COLLAPSE);
+
+    if (!Sprite) return;
+    if (CurrentAnimation < 0) return;
+
+    var x:int = X + Sprite.Animations[CurrentAnimation].Frames[Frame].OffX + 8;
+    var y:int = Y + Sprite.Animations[CurrentAnimation].Frames[Frame].OffY + 8;
+    var w:int = Sprite.Animations[CurrentAnimation].Frames[Frame].W >> 4;
+    var h:int = Sprite.Animations[CurrentAnimation].Frames[Frame].H >> 4;
+    var left:int = Sprite.Animations[CurrentAnimation].Frames[Frame].X;
+    var top:int = Sprite.Animations[CurrentAnimation].Frames[Frame].Y;
+
+    switch (Scene.ZoneID) {
+        case 1: {
+            if (Scene.Act == 2) {
+                x = X - W / 2 + 8;
+                y = Y - 0x40 / 2 + 8;
+                w = W >> 4;
+                h = 0x40 >> 4;
+            }
+            break;
+        }
+        case 5: {
+            y -= 4;
+            break;
+        }
+    }
+
+    var side:bool = FlipX;
+
+    if (side) {
+        for (var i:int = 0; i < w; i++) {
+            for (var j:int = 0; j < h; j++) {
+                Scene.AddMovingSprite(Sprite,
+                    x + i * 0x10, y + j * 0x10,
+                    left + (w - 1 - i) * 0x10, top + j * 0x10,
+                    0x10, 0x10,
+                    -8, -8, side, false, 0, 0, 0x70, (h - 1 - j) * 2 + i * h * 2);
+            }
+        }
+    } else {
+        for (var i:int = 0; i < w; i++) {
+            for (var j:int = 0; j < h; j++) {
+                Scene.AddMovingSprite(Sprite,
+                    x + i * 0x10, y + j * 0x10,
+                    left + i * 0x10, top + j * 0x10,
+                    0x10, 0x10,
+                    -8, -8, side, false, 0, 0, 0x70, (h - 1 - j) * 2 + (w - 1 - i) * h * 2);
+            }
+        }
+    }
+}
+
+event OnLeaveScreen() : int {
+    f = -1;
+    return 1;
+}
+
+event Render(CamX:int, CamY:int) {
+    if (!Visible) {
+        return;
+    }
+    if (!SolidTop) {
+        return;
+    }
+    
+    if (CurrentAnimation >= 0) {
+        if (Scene.ZoneID == 1) {
+            G.DrawSprite(Sprite, CurrentAnimation, Frame, X - CamX, Y - CamY, 0, FlipX);
+        } else {
+            G.DrawSprite(Sprite, CurrentAnimation, Frame, X - CamX, Y - CamY, 0, FlipX);
+        }
+    } else {
+        G.DrawRectangle(X - W / 2 - CamX, Y - H / 2 - CamY, W, H, 0xFF0000);
+    }
+
+    //G.DrawSprite(Scene.TileSprite, 0, 0x8C, 8 + X - CamX + (0), 8 + Y - CamY + (-16), 0, IE_NOFLIP);
+
+    //G.DrawSprite(Scene.TileSprite, 0, 0x8E, 8 + X - CamX + (0), 8 + Y - CamY + (0), 0, IE_NOFLIP);
+
+}
+
+event CustomSolidityCheck(probeX:int, probeY:int, PlayerID:int, checkJumpThrough:int) : int {
+    if (!checkJumpThrough)
+        return 0;
+
+    if (!SolidTop)
+        return 0;
+
+    if (Scene.ZoneID == 1) {
+        if (!FlipX) {
+            if (probeX >= X - W / 2 &&
+                probeY >= Y - H / 2 &&
+                probeX <  X &&
+                probeY <  Y + H / 2) {
+                if (f == -1 && Scene.Players[PlayerID].Ground && Scene.Players[PlayerID].AngleMode == 0 && Scene.Players[PlayerID].EZY < Y - H / 2) {
+                    f = 60 + Allotted;
+                    Priority = true;
+                }
+                return 1;
+            }
+            if (probeX >= X &&
+                probeY >= Y - H / 2 + (probeX - X) / 3 &&
+                probeX <  X + W / 2 &&
+                probeY <  Y + H / 2) {
+                if (f == -1 && Scene.Players[PlayerID].Ground && Scene.Players[PlayerID].AngleMode == 0 && Scene.Players[PlayerID].EZY < Y - H / 2) {
+                    f = 60 + Allotted;
+                    Priority = true;
+                }
+                return 1;
+            }
+        }
+        else if (FlipX) {
+            if (probeX >= X &&
+                probeY >= Y - H / 2 &&
+                probeX <  X + W / 2 &&
+                probeY <  Y + H / 2) {
+                if (f == -1 && Scene.Players[PlayerID].Ground && Scene.Players[PlayerID].AngleMode == 0 && Scene.Players[PlayerID].EZY < Y - H / 2) {
+                    f = 60 + Allotted;
+                    Priority = true;
+                }
+                return 1;
+            }
+            if (probeX >= X - W / 2 &&
+                probeY >= Y - H / 2 + (X - probeX) / 3 &&
+                probeX <  X &&
+                probeY <  Y + H / 2) {
+                if (f == -1 && Scene.Players[PlayerID].Ground && Scene.Players[PlayerID].AngleMode == 0 && Scene.Players[PlayerID].EZY < Y - H / 2) {
+                    f = 60 + Allotted;
+                    Priority = true;
+                }
+                return 1;
+            }
+        }
+    }
+    else {
+        if (probeX >= X - W / 2 &&
+            probeY >= Y - H / 2 &&
+            probeX <  X + W / 2 &&
+            probeY <  Y + H / 2) {
+            if (f == -1 && Scene.Players[PlayerID].Ground && Scene.Players[PlayerID].AngleMode == 0 && Scene.Players[PlayerID].EZY < Y - H / 2) {
+                f = 60 + Allotted;
+                Priority = true;
+            }
+            return 1;
+        }
+    }
+
+    return 0;
+}

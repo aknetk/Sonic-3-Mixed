@@ -1,0 +1,84 @@
+object 0x33;
+
+var Permanent:bool;
+var TriggerID:int;
+var TriggerType:bool;
+var CollisionType:bool;
+var StartY:int;
+var CurrentAnimation:int;
+var Down:int;
+var Pressed:int;
+
+event Create() {
+    Active = true;
+    Priority = false;
+
+    Permanent = (SubType >> 4 & 0x1);
+    TriggerID = (SubType & 0xF);
+    TriggerType = (SubType >> 6 & 0x1); // 0 - Normal, 1 - Sign Bit
+    CollisionType = (SubType >> 5 & 0x1);
+
+    if (!CollisionType)
+        Solid = true;
+    else
+        SolidTop = true;
+    Scene.AddSelfToRegistry(this, "Solid");
+
+    W = 32;
+    H = 16;
+    Rotation = 0;
+
+    StartY = this.Y;
+    CurrentAnimation = 15;
+    if (Scene.ZoneID == 2)
+        CurrentAnimation = 0;
+    Down = false;
+    Pressed = false;
+}
+
+event Update() {
+    this.Down = Scene.Players[0].Ground && Scene.Players[0].LastObject == this;
+
+    if (Down) {
+        if (!Pressed) {
+            Pressed = true;
+            Sound.Play(Sound.SFX_SCORE_ADD);
+            Scene.LevelTriggerFlag |= 1 << TriggerID;
+            CollidingWithPlayer = true;
+        }
+    }
+
+    Y = StartY + 4 + 4 * Down;
+}
+
+event Render(CamX:int, CamY:int) {
+    if (Scene.ZoneID != 2) 
+        G.DrawSprite(Sprite, CurrentAnimation, Down, X - CamX, Y - 4 * Down - CamY, 0, IE_NOFLIP);
+    else {
+        G.DrawSprite(Sprite, CurrentAnimation, 0, X - CamX, Y - 4 * Down - CamY + 3, 0, IE_NOFLIP);
+        G.DrawSprite(Sprite, CurrentAnimation, Down + 1, X - CamX, StartY - CamY + 7, 0, IE_NOFLIP);
+    }
+    // G.DrawRectangle(X - CamX - 16, Y - CamY - 8, 32, 8, 0xB4B4D8);
+    // if (!this.Down)
+    //     G.DrawRectangle(X - CamX -  7, Y - CamY - 0, 14, 8, 0x6C6C90);
+	
+	if (DrawCollisions) {
+		G.SetDrawAlpha(0x80);
+		G.DrawRectangle(X - (W / 2) - CamX, Y - (H / 2) - CamY, W, H, DrawCollisionsColor);
+		G.SetDrawAlpha(0xFF);
+	}
+}
+
+event OnCollisionWithPlayer(PlayerID:int, HitFrom:int, Data:int) : int {
+    if (HitFrom != CollideSide.TOP) {
+        this.CollidingWithPlayer = false;
+        return 0;
+    }
+
+    if (Scene.Players[PlayerID].YSpeed <= 0) {
+        this.CollidingWithPlayer = false;
+        return 0;
+    }
+
+    return 1;
+}

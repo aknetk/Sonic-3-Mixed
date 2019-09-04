@@ -1,0 +1,550 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="NoGen (Debug)|Win32">
+      <Configuration>NoGen (Debug)</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="NoGen (Release)|Win32">
+      <Configuration>NoGen (Release)</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\source\Engine\Diagnostics\Memory.cpp" />
+    <ClCompile Include="..\source\Engine\IAchievement.cpp" />
+    <ClCompile Include="..\source\Engine\IApp.cpp" />
+    <ClCompile Include="..\source\Engine\IAudio.cpp" />
+    <ClCompile Include="..\source\Engine\IGLGraphics.cpp" />
+    <ClCompile Include="..\source\Engine\IGraphics.cpp" />
+    <ClCompile Include="..\source\Engine\IINI.cpp" />
+    <ClCompile Include="..\source\Engine\IInput.cpp" />
+    <ClCompile Include="..\source\Engine\ImageFormats\BMP.cpp" />
+    <ClCompile Include="..\source\Engine\ImageFormats\GIF.cpp" />
+    <ClCompile Include="..\source\Engine\ImageFormats\PNG.cpp" />
+    <ClCompile Include="..\source\Engine\IMath.cpp" />
+    <ClCompile Include="..\source\Engine\IModel.cpp" />
+    <ClCompile Include="..\source\Engine\IResource.cpp" />
+    <ClCompile Include="..\source\Engine\IResources.cpp" />
+    <ClCompile Include="..\source\Engine\IScene.cpp" />
+    <ClCompile Include="..\source\Engine\ISound.cpp" />
+    <ClCompile Include="..\source\Engine\ISprite.cpp" />
+    <ClCompile Include="..\source\Engine\IStreamer.cpp" />
+    <ClCompile Include="..\source\Game\Animal.cpp" />
+    <ClCompile Include="..\source\Game\BubbleCountdown.cpp" />
+    <ClCompile Include="..\source\Game\Explosion.cpp" />
+    <ClCompile Include="..\source\Game\FallingTile.cpp" />
+    <ClCompile Include="..\source\Game\LevelScene.cpp" />
+    <ClCompile Include="..\source\Game\Levels\AIZ.cpp" />
+    <ClCompile Include="..\source\Game\Levels\ALZ.cpp" />
+    <ClCompile Include="..\source\Game\Levels\ASZ.cpp" />
+    <ClCompile Include="..\source\Game\Levels\BonusStage.cpp" />
+    <ClCompile Include="..\source\Game\Levels\BPZ.cpp" />
+    <ClCompile Include="..\source\Game\Levels\CGZ.cpp" />
+    <ClCompile Include="..\source\Game\Levels\CNZ.cpp" />
+    <ClCompile Include="..\source\Game\Levels\DEZ.cpp" />
+    <ClCompile Include="..\source\Game\Levels\DPZ.cpp" />
+    <ClCompile Include="..\source\Game\Levels\EMZ.cpp" />
+    <ClCompile Include="..\source\Game\Levels\FBZ.cpp" />
+    <ClCompile Include="..\source\Game\Levels\HCZ.cpp" />
+    <ClCompile Include="..\source\Game\Levels\HPZ.cpp" />
+    <ClCompile Include="..\source\Game\Levels\ICZ.cpp" />
+    <ClCompile Include="..\source\Game\Levels\LBZ.cpp" />
+    <ClCompile Include="..\source\Game\Levels\LRZ.cpp" />
+    <ClCompile Include="..\source\Game\Levels\MGZ.cpp" />
+    <ClCompile Include="..\source\Game\Levels\MHZ.cpp" />
+    <ClCompile Include="..\source\Game\Levels\SOZ.cpp" />
+    <ClCompile Include="..\source\Game\Levels\SpecialStage.cpp" />
+    <ClCompile Include="..\source\Game\Levels\SSZ.cpp" />
+    <ClCompile Include="..\source\Game\Levels\TDZ.cpp" />
+    <ClCompile Include="..\source\Game\Levels\TSZ.cpp" />
+    <ClCompile Include="..\source\Game\MovingSprite.cpp" />
+    <ClCompile Include="..\source\Game\Object.cpp" />
+    <ClCompile Include="..\source\Game\ObjectNames.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\AIZ\AirshipBomb.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\AIZ\AIZBoss.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\AIZ\AIZMiniboss.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\AIZ\AIZMinibossBomb.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\AIZ\AIZMinibossCutscene.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\AIZ\AIZMinibossFlame.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\AIZ\Bloominator.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\AIZ\BloominatorSpore.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\AIZ\CaterkillerJr.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\AIZ\CollapsingLogBridge.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\AIZ\DisappearingFloor.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\AIZ\Drawbridge.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\AIZ\FallingLog.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\AIZ\FireBreath.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\AIZ\FireBreathBomb.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\AIZ\FireBreathCutscene.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\AIZ\FireBreathFlame.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\AIZ\FlameMobile.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\AIZ\FlippingBridge.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\AIZ\ForegroundPlant.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\AIZ\HollowTree.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\AIZ\MonkeyDude.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\AIZ\MonkeyDudeCoconut.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\AIZ\RhinoBot.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\AIZ\RideVine.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\AIZ\RopePeg.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\AIZ\SpikedLog.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\AIZ\SwingVine.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\AIZ\TreeBark.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\CNZ\Balloon.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\CNZ\Batbright.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\CNZ\BatbrightParts.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\CNZ\Bouncepad.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\CNZ\Bumper.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\CNZ\CNZLightBulb.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\CNZ\HoverFan.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\CNZ\VacuumTube.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\CommonSpecial\CorkFloor.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\CommonSpecial\CutsceneKnuckles.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\CommonSpecial\Door.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\CommonSpecial\EggCapsule.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\CommonSpecial\EggCapsuleButton.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\CommonSpecial\Rock.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\CommonSpecial\Signpost.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\CommonSpecial\TensionBridge.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\CommonSpecial\TensionBridgeChild.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\CommonSpecial\ViewCollisionToggler.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\Common\AnimSprite.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\Common\AutomaticTunnel.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\Common\BlankObject.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\Common\BreakableWall.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\Common\BubbleAir.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\Common\Bubbler.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\Common\Button.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\Common\CollapsingBridge.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\Common\CollapsingPlatform.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\Common\FloatingPlatform.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\Common\HiddenMonitor.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\Common\InvisibleBlock.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\Common\InvisibleDeath.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\Common\InvisibleSpikes.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\Common\Monitor.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\Common\NonAnim.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\Common\PlaneSwitcher.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\Common\PlatformOutliner.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\Common\PlayerSpawn.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\Common\Ridge.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\Common\Ring.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\Common\RollEnforcer.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\Common\SpecialRing.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\Common\Spikes.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\Common\Spring.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\Common\StarPost.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\Common\WarpStars.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\GHZ\Motobug.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\GHZ\MotobugSmoke.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\HCZ\BigShaker.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\HCZ\Blastoid.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\HCZ\BlastoidShot.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\HCZ\Block.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\HCZ\BreakBar.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\HCZ\Buggernaut.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\HCZ\DepthCharge.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\HCZ\Fan.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\HCZ\HandLauncher.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\HCZ\HCZBoss.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\HCZ\HCZConveyorBelt.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\HCZ\HCZConveyorSpike.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\HCZ\HCZMiniboss.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\HCZ\HCZSlide.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\HCZ\HCZSnakeBlocks.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\HCZ\HCZVWaterStream.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\HCZ\HCZWaterSplash.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\HCZ\HCZWaterWall.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\HCZ\Jawz.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\HCZ\LargeFan.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\HCZ\MegaChomper.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\HCZ\Pointdexter.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\HCZ\ScrewMobile.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\HCZ\SpinningColumn.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\HCZ\TurboSpiker.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\HCZ\TurboSpikerSpike.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\ICZ\CrushingColumn.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\ICZ\Freezer.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\ICZ\HarmfulIce.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\ICZ\IceCube.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\ICZ\SegmentedColumn.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\ICZ\SegmentedColumnStub.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\ICZ\SnowPile.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\ICZ\Stalagtite.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\ICZ\StarPointer.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\ICZ\StarPointerOrbs.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\ICZ\SwingingPlatform.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\ICZ\SwingingPlatformTrigger.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\LBZ\Orbinaut.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\MGZ\BubblesBadnik.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\MGZ\DrillerEggman.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\MGZ\DrillMobile.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\MGZ\Mantis.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\MGZ\MGZBoss.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\MGZ\MGZDashTrigger.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\MGZ\MGZDriller.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\MGZ\MGZMiniBoss.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\MGZ\MGZQuickMud.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\MGZ\MGZSmashingPillar.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\MGZ\MGZSwingingPlatform.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\MGZ\MGZTriggerPlatform.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\MGZ\Relief.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\MGZ\ReliefEye.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\MGZ\Spiker.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\MGZ\TopPlatform.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\MGZ\TunnelBot.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\ObjectListing.cpp" />
+    <ClCompile Include="..\source\Game\Objects\Gen\Test\Platform.cpp" />
+    <ClCompile Include="..\source\Game\Player.cpp" />
+    <ClCompile Include="..\source\Game\SaveGame.cpp" />
+    <ClCompile Include="..\source\Game\Scenes\DataSelect.cpp" />
+    <ClCompile Include="..\source\Game\Scenes\ExtrasMenu.cpp" />
+    <ClCompile Include="..\source\Game\Scenes\LevelSelect.cpp" />
+    <ClCompile Include="..\source\Game\Scenes\MainMenu.cpp" />
+    <ClCompile Include="..\source\Game\Scenes\SettingsMenu.cpp" />
+    <ClCompile Include="..\source\Game\Scenes\TitleScreen.cpp" />
+    <ClCompile Include="..\source\Game\Scenes\VSMenu.cpp" />
+    <ClCompile Include="..\source\Game\ScoreGhost.cpp" />
+    <ClCompile Include="..\source\Game\Sound.cpp" />
+    <ClCompile Include="..\source\main.cpp" />
+    <ClCompile Include="..\source\Utils\gifdec.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\source\Engine\I3D.hh" />
+    <ClInclude Include="..\source\Engine\IGenesis.hh" />
+    <ClInclude Include="..\source\Engine\IHeader.hh" />
+    <ClInclude Include="..\source\Game\LevelSceneExt.h" />
+    <ClInclude Include="..\source\Game\Object.h" />
+    <ClInclude Include="..\source\Game\Player.h" />
+    <ClInclude Include="..\source\Utils\gifdec.h" />
+    <ClInclude Include="..\source\Utils\ioapi.h" />
+    <ClInclude Include="..\source\Utils\Minizip.hh" />
+    <ClInclude Include="..\source\Utils\Standard.h" />
+    <ClInclude Include="..\source\Utils\StandardSDL2.h" />
+    <ClInclude Include="..\source\Utils\unzip.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\source\Game\Objects\AIZ\AirshipBomb.ie2" />
+    <None Include="..\source\Game\Objects\AIZ\AIZBoss.ie2" />
+    <None Include="..\source\Game\Objects\AIZ\AIZMiniboss.ie2" />
+    <None Include="..\source\Game\Objects\AIZ\AIZMinibossBomb.ie2" />
+    <None Include="..\source\Game\Objects\AIZ\AIZMinibossCutscene.ie2" />
+    <None Include="..\source\Game\Objects\AIZ\AIZMinibossFlame.ie2" />
+    <None Include="..\source\Game\Objects\AIZ\Bloominator.ie2" />
+    <None Include="..\source\Game\Objects\AIZ\BloominatorSpore.ie2" />
+    <None Include="..\source\Game\Objects\AIZ\CaterkillerJr.ie2" />
+    <None Include="..\source\Game\Objects\AIZ\CollapsingLogBridge.ie2" />
+    <None Include="..\source\Game\Objects\AIZ\DisappearingFloor.ie2" />
+    <None Include="..\source\Game\Objects\AIZ\Drawbridge.ie2" />
+    <None Include="..\source\Game\Objects\AIZ\FallingLog.ie2" />
+    <None Include="..\source\Game\Objects\AIZ\FlippingBridge.ie2" />
+    <None Include="..\source\Game\Objects\AIZ\ForegroundPlant.ie2" />
+    <None Include="..\source\Game\Objects\AIZ\HollowTree.ie2" />
+    <None Include="..\source\Game\Objects\AIZ\MonkeyDude.ie2" />
+    <None Include="..\source\Game\Objects\AIZ\MonkeyDudeCoconut.ie2" />
+    <None Include="..\source\Game\Objects\AIZ\RhinoBot.ie2" />
+    <None Include="..\source\Game\Objects\AIZ\RideVine.ie2" />
+    <None Include="..\source\Game\Objects\AIZ\RopePeg.ie2" />
+    <None Include="..\source\Game\Objects\AIZ\SpikedLog.ie2" />
+    <None Include="..\source\Game\Objects\AIZ\SwingVine.ie2" />
+    <None Include="..\source\Game\Objects\AIZ\TreeBark.ie2" />
+    <None Include="..\source\Game\Objects\CNZ\Balloon.ie2" />
+    <None Include="..\source\Game\Objects\CNZ\Batbright.ie2" />
+    <None Include="..\source\Game\Objects\CNZ\BatbrightParts.ie2" />
+    <None Include="..\source\Game\Objects\CNZ\Bouncepad.ie2" />
+    <None Include="..\source\Game\Objects\CNZ\CNZLightBulb.ie2" />
+    <None Include="..\source\Game\Objects\CNZ\CNZRotatingBarrel.ie2" />
+    <None Include="..\source\Game\Objects\CNZ\HoverFan.ie2" />
+    <None Include="..\source\Game\Objects\CNZ\VacuumTube.ie2" />
+    <None Include="..\source\Game\Objects\CommonSpecial\CorkFloor.ie2" />
+    <None Include="..\source\Game\Objects\CommonSpecial\CutsceneKnuckles.ie2" />
+    <None Include="..\source\Game\Objects\CommonSpecial\Door.ie2" />
+    <None Include="..\source\Game\Objects\CommonSpecial\EggCapsule.ie2" />
+    <None Include="..\source\Game\Objects\CommonSpecial\EggCapsuleButton.ie2" />
+    <None Include="..\source\Game\Objects\CommonSpecial\Rock.ie2" />
+    <None Include="..\source\Game\Objects\CommonSpecial\Signpost.ie2" />
+    <None Include="..\source\Game\Objects\CommonSpecial\TensionBridge.ie2" />
+    <None Include="..\source\Game\Objects\CommonSpecial\TensionBridgeChild.ie2" />
+    <None Include="..\source\Game\Objects\CommonSpecial\ViewCollisionToggler.ie2" />
+    <None Include="..\source\Game\Objects\Common\AnimSprite.ie2" />
+    <None Include="..\source\Game\Objects\Common\AutomaticTunnel.ie2" />
+    <None Include="..\source\Game\Objects\Common\BreakableWall.ie2" />
+    <None Include="..\source\Game\Objects\Common\BubbleAir.ie2" />
+    <None Include="..\source\Game\Objects\Common\Bubbler.ie2" />
+    <None Include="..\source\Game\Objects\Common\Button.ie2" />
+    <None Include="..\source\Game\Objects\Common\CollapsingBridge.ie2" />
+    <None Include="..\source\Game\Objects\Common\CollapsingPlatform.ie2" />
+    <None Include="..\source\Game\Objects\Common\FloatingPlatform.ie2" />
+    <None Include="..\source\Game\Objects\Common\HiddenMonitor.ie2" />
+    <None Include="..\source\Game\Objects\Common\InvisibleBlock.ie2" />
+    <None Include="..\source\Game\Objects\Common\InvisibleDeath.ie2" />
+    <None Include="..\source\Game\Objects\Common\InvisibleSpikes.ie2" />
+    <None Include="..\source\Game\Objects\Common\Monitor.ie2" />
+    <None Include="..\source\Game\Objects\Common\NonAnim.ie2" />
+    <None Include="..\source\Game\Objects\Common\Ridge.ie2" />
+    <None Include="..\source\Game\Objects\Common\RollEnforcer.ie2" />
+    <None Include="..\source\Game\Objects\Common\SpecialRing.ie2">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\source\Game\Objects\Common\Spikes.ie2" />
+    <None Include="..\source\Game\Objects\Common\Spring.ie2" />
+    <None Include="..\source\Game\Objects\Common\StarPost.ie2" />
+    <None Include="..\source\Game\Objects\GHZ\Motobug.ie2" />
+    <None Include="..\source\Game\Objects\HCZ\Blastoid.ie2" />
+    <None Include="..\source\Game\Objects\HCZ\BlastoidShot.ie2" />
+    <None Include="..\source\Game\Objects\HCZ\Block.ie2" />
+    <None Include="..\source\Game\Objects\HCZ\BreakBar.ie2" />
+    <None Include="..\source\Game\Objects\HCZ\Buggernaut.ie2" />
+    <None Include="..\source\Game\Objects\HCZ\Fan.ie2" />
+    <None Include="..\source\Game\Objects\HCZ\HandLauncher.ie2" />
+    <None Include="..\source\Game\Objects\HCZ\HCZConveyorBelt.ie2" />
+    <None Include="..\source\Game\Objects\HCZ\HCZConveyorSpike.ie2" />
+    <None Include="..\source\Game\Objects\HCZ\HCZMiniboss.ie2" />
+    <None Include="..\source\Game\Objects\HCZ\HCZSlide.ie2" />
+    <None Include="..\source\Game\Objects\HCZ\HCZSnakeBlocks.ie2" />
+    <None Include="..\source\Game\Objects\HCZ\HCZVWaterStream.ie2" />
+    <None Include="..\source\Game\Objects\HCZ\HCZWaterSplash.ie2" />
+    <None Include="..\source\Game\Objects\HCZ\HCZWaterWall.ie2" />
+    <None Include="..\source\Game\Objects\HCZ\Jawz.ie2" />
+    <None Include="..\source\Game\Objects\HCZ\LargeFan.ie2" />
+    <None Include="..\source\Game\Objects\HCZ\MegaChomper.ie2" />
+    <None Include="..\source\Game\Objects\HCZ\Pointdexter.ie2" />
+    <None Include="..\source\Game\Objects\HCZ\ScrewMobile.ie2" />
+    <None Include="..\source\Game\Objects\HCZ\SpinningColumn.ie2" />
+    <None Include="..\source\Game\Objects\HCZ\TurboSpiker.ie2" />
+    <None Include="..\source\Game\Objects\MGZ\BubblesBadnik.ie2" />
+    <None Include="..\source\Game\Objects\MGZ\DrillerEggman.ie2" />
+    <None Include="..\source\Game\Objects\MGZ\Mantis.ie2" />
+    <None Include="..\source\Game\Objects\MGZ\MGZBoss.ie2" />
+    <None Include="..\source\Game\Objects\MGZ\MGZDashTrigger.ie2" />
+    <None Include="..\source\Game\Objects\MGZ\MGZDriller.ie2" />
+    <None Include="..\source\Game\Objects\MGZ\MGZMiniBoss.ie2" />
+    <None Include="..\source\Game\Objects\MGZ\MGZSmashingPillar.ie2" />
+    <None Include="..\source\Game\Objects\MGZ\Relief.ie2" />
+    <None Include="..\source\Game\Objects\MGZ\ReliefEye.ie2" />
+    <None Include="..\source\Game\Objects\MGZ\MGZQuickMud.ie2" />
+    <None Include="..\source\Game\Objects\MGZ\MGZSwingingPlatform.ie2" />
+    <None Include="..\source\Game\Objects\MGZ\MGZTriggerPlatform.ie2" />
+    <None Include="..\source\Game\Objects\MGZ\Spiker.ie2" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{43B7CD4C-B24A-450B-A277-12F246CF664C}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='NoGen (Release)|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='NoGen (Debug)|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='NoGen (Release)|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='NoGen (Debug)|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(SolutionDir)..\source;$(SolutionDir)..\gen;$(SolutionDir)External\Debug\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)External\Debug\lib;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
+    <CustomBuildBeforeTargets>
+    </CustomBuildBeforeTargets>
+    <PreBuildEventUseInBuild>true</PreBuildEventUseInBuild>
+    <ExecutablePath>$(SolutionDir)External\Debug\bin;$(ExecutablePath)</ExecutablePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(SolutionDir)..\source;$(SolutionDir)..\gen;External\Release\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)External\Release\lib;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
+    <CustomBuildBeforeTargets />
+    <PreBuildEventUseInBuild>true</PreBuildEventUseInBuild>
+    <ExecutablePath>$(SolutionDir)External\Release\bin;$(ExecutablePath)</ExecutablePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='NoGen (Release)|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(SolutionDir)..\source;$(SolutionDir)..\gen;$(SolutionDir)External\Release\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)External\Release\lib;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
+    <CustomBuildBeforeTargets />
+    <PreBuildEventUseInBuild>
+    </PreBuildEventUseInBuild>
+    <ExecutablePath>$(SolutionDir)External\Release\bin;$(ExecutablePath)</ExecutablePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='NoGen (Debug)|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>..\source;..\gen;$(SolutionDir)External\Debug\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)External\Debug\lib;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
+    <CustomBuildBeforeTargets>
+    </CustomBuildBeforeTargets>
+    <PreBuildEventUseInBuild>
+    </PreBuildEventUseInBuild>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;ZLIB_WINAPI;_DEBUG;_CONSOLE;MSVC;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>MaxSpeed</Optimization>
+      <UndefinePreprocessorDefinitions>PUBLIC;PRIVATE;INTERFACE;VIRTUAL</UndefinePreprocessorDefinitions>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <MinimalRebuild>true</MinimalRebuild>
+      <UseFullPaths>true</UseFullPaths>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>zlibwapi.lib;discord-rpc.lib;glew32.lib;opengl32.lib;glu32.lib;freeglut.lib;libogg_static.lib;libvorbis_static.lib;libvorbisfile_static.lib;SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <StackReserveSize>
+      </StackReserveSize>
+      <StackCommitSize>
+      </StackCommitSize>
+      <GenerateMapFile>true</GenerateMapFile>
+      <MapFileName>$(OutDir)$(TargetName).map</MapFileName>
+    </Link>
+    <PreBuildEvent>
+      <Command>"../tools/makeheaders.exe" "../"</Command>
+    </PreBuildEvent>
+    <CustomBuildStep>
+      <Command>
+      </Command>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;ZLIB_WINAPI;NDEBUG;_CONSOLE;MSVC;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>MaxSpeed</Optimization>
+      <UndefinePreprocessorDefinitions>PUBLIC;PRIVATE;INTERFACE;VIRTUAL</UndefinePreprocessorDefinitions>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <MinimalRebuild>true</MinimalRebuild>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <UseFullPaths>false</UseFullPaths>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>zlibwapi.lib;discord-rpc.lib;glew32.lib;opengl32.lib;glu32.lib;freeglut.lib;libogg_static.lib;libvorbis_static.lib;libvorbisfile_static.lib;SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <StackReserveSize>
+      </StackReserveSize>
+      <StackCommitSize>
+      </StackCommitSize>
+      <GenerateMapFile>true</GenerateMapFile>
+      <MapFileName>$(OutDir)$(TargetName).map</MapFileName>
+    </Link>
+    <PreBuildEvent>
+      <Command>"../tools/makeheaders.exe" "../"</Command>
+    </PreBuildEvent>
+    <CustomBuildStep>
+      <Command>
+      </Command>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='NoGen (Release)|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;ZLIB_WINAPI;NDEBUG;_CONSOLE;MSVC;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>MaxSpeed</Optimization>
+      <UndefinePreprocessorDefinitions>PUBLIC;PRIVATE;INTERFACE;VIRTUAL</UndefinePreprocessorDefinitions>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <MinimalRebuild>true</MinimalRebuild>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <UseFullPaths>false</UseFullPaths>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>zlibwapi.lib;discord-rpc.lib;glew32.lib;opengl32.lib;glu32.lib;freeglut.lib;libogg_static.lib;libvorbis_static.lib;libvorbisfile_static.lib;SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <StackReserveSize>
+      </StackReserveSize>
+      <StackCommitSize>
+      </StackCommitSize>
+      <GenerateMapFile>true</GenerateMapFile>
+      <MapFileName>$(OutDir)$(TargetName).map</MapFileName>
+    </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <CustomBuildStep>
+      <Command>
+      </Command>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='NoGen (Debug)|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;ZLIB_WINAPI;_DEBUG;_CONSOLE;MSVC;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <UndefinePreprocessorDefinitions>PUBLIC;PRIVATE;INTERFACE;VIRTUAL</UndefinePreprocessorDefinitions>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>zlibwapi.lib;discord-rpc.lib;glew32.lib;opengl32.lib;glu32.lib;freeglut.lib;libogg_static.lib;libvorbis_static.lib;libvorbisfile_static.lib;SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <StackReserveSize>2000000</StackReserveSize>
+      <StackCommitSize>80000</StackCommitSize>
+      <HeapReserveSize>2000000</HeapReserveSize>
+      <HeapCommitSize>80000</HeapCommitSize>
+      <GenerateMapFile>true</GenerateMapFile>
+      <MapFileName>$(OutDir)$(TargetName).map</MapFileName>
+    </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <CustomBuildStep>
+      <Command>
+      </Command>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

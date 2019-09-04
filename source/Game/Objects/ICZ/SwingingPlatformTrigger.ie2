@@ -1,0 +1,25 @@
+var Player:IPlayer;
+var SwingPlatform:Object;
+
+event SwingingPlatformTrigger() : CONSTRUCTER {
+    //load none, is invisible
+}
+
+event Create() {
+    W = 8;
+    H = 48;
+    X = X + (FlipX ? -28 : 28);
+    Solid = true;
+    Scene.AddSelfToRegistry(this, "Solid");
+    SwingPlatform = NULL;
+}
+event Update() {
+    if (!SwingPlatform && Parent) {
+        SwingPlatform = GetObjectParent();
+    }
+}
+/*event OnCollisionWithPlayer(PlayerID:int, HitFrom:int, Data:int) : int {
+    Player = Scene.Players[PlayerID];
+    IApp.Print(0, "%d", Player.GroundSpeed / 4); 
+    SwingPlatform.SubType = Player.GroundSpeed / 4;
+}*/

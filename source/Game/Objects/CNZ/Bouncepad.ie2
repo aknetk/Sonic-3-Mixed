@@ -1,0 +1,61 @@
+object 0x4B;
+
+event Create() {
+    Active = true;
+    Priority = true;
+
+	W = (SubType & 0xF0) << 1;
+	H = 16;
+    VisW = (SubType & 0xF0) << 1;
+    VisH = 16;
+}
+
+event OnCollisionWithPlayer(PlayerID:int, HitFrom:int, Data:int) : int {
+    var Player:IPlayer = Scene.Players[PlayerID];
+    if (Player.Action == ActionType.Dead) {
+        return 0;
+    }
+
+    // Velocity is based on the Flip of the object, not Player.
+    Player.Ground = false;
+    Player.XSpeed = FlipX ? -0x800 : 0x800;
+    Player.YSpeed = FlipY ? 0x800 : -0x800;
+    Player.InputAlarm = 0x0f;
+
+    Player.Action = ActionType.Spring;
+    Player.SpringFlip = 3;
+
+    // The below functionality is currently unknown, and as such, based on
+    // observation, the above will suffice.
+
+    /*
+    if (Player.Action == ActionType.Rolling) {
+        Player.Action = ActionType.Normal;
+    }
+
+    if (Player.Angle == 0) {
+        Player.Action = ActionType.Normal;
+        if (Player.DisplayFlip == 1) {
+            Player.Angle = 1;
+        } else {
+            Player.Angle = -1;
+        }
+        Player.SpringFlip = 3;
+    }
+    //*/
+
+    Sound.Play(Sound.SFX_PAD_BOUNCE);
+    return 1;
+}
+
+event Render(CamX:int, CamY:int) {
+    /*
+		G.DrawSprite(Sprite, 0, Frame, X - CamX, Y - CamY, Rotation, FlipX | FlipY << 1);
+    
+    */
+					if (App.viewObjectCollision) {
+		G.SetDrawAlpha(0x80);
+		G.DrawRectangle(X - (W / 2) - CamX, Y - (H / 2) - CamY, W, H, DrawCollisionsColor);
+		G.SetDrawAlpha(0xFF);
+		}
+}

@@ -1,0 +1,48 @@
+object 0x30;
+
+var FrameStart:int;
+var FrameCount:int;
+var FrameLength:int;
+
+event Create() {
+    Active = true;
+    switch (Scene.ZoneID) {
+        case 1:
+            CurrentAnimation = 2;
+            break;
+    }
+
+    switch (SubType) {
+        case 0: {
+            FrameStart = 0;
+            FrameCount = 5;
+            FrameLength = 4;
+            break;
+        }
+        case 1: {
+            FrameStart = 5;
+            FrameCount = 4;
+            FrameLength = 4;
+            break;
+        }
+    }
+}
+
+event Update() {
+    Frame = FrameStart + (Scene.Frame / FrameLength) % FrameCount;
+}
+
+event Render(CamX:int, CamY:int) {
+    if (CurrentAnimation == -1)
+        return;
+
+    if (Scene.ZoneID == 1) {
+        // G.SetClip(0, 0, App.WIDTH, );
+        // G.DrawSprite(Sprite, CurrentAnimation, Frame, X - CamX, Y - CamY, 0, FlipX | FlipY << 1);
+        // G.ClearClip();
+        if (Y + 16 >= Scene.VisualWaterLevel)
+            return;
+    }
+
+    G.DrawSprite(Sprite, CurrentAnimation, Frame, X - CamX, Y - CamY, 0, FlipX | FlipY << 1);
+}

@@ -1,0 +1,37 @@
+object 0xB8;
+subclass Enemy;
+
+event HarmfulIce() : CONSTRUCTER {
+    BinIndex = LevelScene.LoadSpriteBin("ICZ/Harmful Ice.bin");
+}
+
+event Create() {
+    Active = true;
+    Priority = false;
+    Invincible = true;
+    CurrentAnimation = Sprite.FindAnimation("Harmful Ice");
+    W = 32;
+    if (SubType == 0) {
+        H = 48;
+        Frame = 1;
+    } else {
+        H = 32;
+        Frame = 0;
+    }
+}
+
+event Render(CamX:int, CamY:int) {
+	if (DrawCollisions) {
+		G.SetDrawAlpha(0x80);
+		G.DrawRectangle(X - CamX, Y - CamY, W, H, DrawCollisionsColor);
+		G.SetDrawAlpha(0xFF);
+	}
+	G.DrawSprite(Sprite, CurrentAnimation, Frame, X - CamX, Y - CamY, 0, FlipX ? IE_FLIPX : IE_NOFLIP);
+}
+
+/*event OnCollisionWithPlayer(PlayerID:int, HitFrom:int, Data:int) : int {
+    if (Scene.Players[PlayerID].Action != ActionType.Hurt) {
+        Scene.Players[PlayerID].Hurt(X, true);
+    }
+    return 1;
+}*/
